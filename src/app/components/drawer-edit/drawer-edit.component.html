@@ -1,1 +1,15 @@
-<p>drawer-edit works!</p>
+<div>
+  <textarea
+    nz-input
+    [nzAutosize]="{ minRows: 2, maxRows: 6 }"
+    [(ngModel)]="valueEdit.Task"
+  ></textarea>
+  <br />
+  <br />
+  <input  [(ngModel)]="valueEdit.Time" />
+  <div>
+    <button nz-button nzType="primary" (click)="edit(valueEdit)">
+      Save!
+    </button>
+  </div>
+</div>

@@ -1,8 +1,9 @@
 <div nz-row>
-  <div nz-row nzSpan="24"style="text-align: center;">
-    <h1 nz-typography >Todo List!</h1>
-    <button nz-button nzType="primary" (click)="onClick()">Primary Button</button>
-
+  <div nz-row nzSpan="24" style="text-align: center">
+    <h1 nz-typography>Todo List!</h1>
+    <button nz-button nzType="primary" (click)="onClick(data)">
+      ADD
+    </button>
   </div>
 </div>
 <div nz-row>
@@ -22,10 +23,10 @@
           <td>{{ value.Time }}</td>
           <td>
             <a>Action 一 </a>
-            <nz-divider nzType="vertical" ></nz-divider>
-            <a (click)="onClick2()">Edit</a>
             <nz-divider nzType="vertical"></nz-divider>
-            <a>Delete</a>
+            <a (click)="onClickEdit()">Edit</a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a (click)="clickDelete(value.id)">Delete</a>
           </td>
         </tr>
       </tbody>

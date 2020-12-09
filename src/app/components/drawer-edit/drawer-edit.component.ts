@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-drawer-edit',
   templateUrl: './drawer-edit.component.html',
-  styleUrls: ['./drawer-edit.component.css']
+  styleUrls: ['./drawer-edit.component.css'],
 })
 export class DrawerEditComponent implements OnInit {
+  @Input() valueEdit = {
+    id: '',
+    Task: '',
+    Time: '',
+  };
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
+  edit() {}
 }

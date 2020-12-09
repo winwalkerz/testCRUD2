@@ -16,7 +16,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 
 
 @NgModule({
-  declarations: [TodoList2Component],
+  declarations: [TodoList2Component,],
   imports: [
     CommonModule,
     TodoList2RoutingModule,

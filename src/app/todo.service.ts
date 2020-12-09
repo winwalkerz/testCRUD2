@@ -18,10 +18,10 @@ export class TodoService {
   }
 
   edit(data: any, id: any) {
-    return this.http.put(`${url}/Information-customer/${id}`, data).toPromise();
+    return this.http.put(`${url}/Todo-List/${id}`, data).toPromise();
   }
 
   delete(id: any) {
-    return this.http.delete(`${url}/Information-customer/${id}`).toPromise();
+    return this.http.delete(`${url}/Todo-List/${id}`).toPromise();
   }
 }

@@ -1,18 +1,36 @@
-<div>
-
-    
+<div #drawer1>
   <textarea
     nz-input
     placeholder="จ่ายบิล, ไปเที่ยว"
     [nzAutosize]="{ minRows: 2, maxRows: 6 }"
-    [(ngModel)] ="valueCreate.Task"
+    [(ngModel)]="valueCreate.Task"
   ></textarea>
   <br />
   <br />
 
   <input nz-input placeholder="เวลา" [(ngModel)]="valueCreate.Time" />
-</div>
 
-<div>
-    <button nz-button nzType="primary" (click)="create(valueCreate)">Save!</button>
+  <!-- <nz-table #basicTable>
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>Task</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let value of data">
+      <td>{{ value.id }}</td>
+      <td>{{ value.Task }}</td>
+      <td>{{ value.Time }}</td>
+      <td>
+
+    </tr>
+  </tbody>
+</nz-table> -->
+  <div>
+    <button nz-button nzType="primary" (click)="create(valueCreate)">
+      Save!
+    </button>
+  </div>
 </div>

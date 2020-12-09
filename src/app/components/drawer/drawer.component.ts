@@ -1,42 +1,41 @@
 import { DrawerEditComponent } from './../drawer-edit/drawer-edit.component';
 import { TodoService } from './../../todo.service';
-import { Component, OnInit } from '@angular/core';
-import { NzDrawerService } from 'ng-zorro-antd/drawer'; //import service ของ ant
-import { NzModalCloseComponent } from 'ng-zorro-antd/modal';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { NzDrawerService, NzDrawerRef } from 'ng-zorro-antd/drawer'; //import service ของ ant
+
 @Component({
   selector: 'app-drawer',
   templateUrl: './drawer.component.html',
   styleUrls: ['./drawer.component.css'],
 })
 export class DrawerComponent implements OnInit {
-  data: any; //ตัวแปลสำหรับรับข้อมูลจาก mockupAPI
+  @Input() data: any; //ตัวแปลสำหรับรับข้อมูลจาก mockupAPI
   valueCreate = {
     id: '',
     Task: '',
     Time: '',
   };
-
+  // @Output() onSendValue = new EventEmitter<boolean>();
+  // sendValue() {
+  //   this.onSendValue.emit(true);
+  // }
   constructor(
     private todoservice: TodoService,
-    private nzDrawerService: NzDrawerService
+    private nzDrawerRef: NzDrawerRef
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.showDatas();
+  }
 
   create(data: any) {
     this.todoservice.create(data).then(() => {
-      alert('Success'),
-        (this.valueCreate.Task = ''),
-        (this.valueCreate.Time = ''),
-        this.close();
+      // console.warn(this.data);
+      this.nzDrawerRef.close();
     });
   }
 
-  close() {
-
-  }
-
-  showData() {
+  showDatas() {
     this.todoservice.refresh().then((res: any) => {
       this.data = res;
       console.warn(this.data);

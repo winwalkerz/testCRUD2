@@ -1,7 +1,7 @@
 import { TodoService } from './../../todo.service'; //import service ส่วนกลาง
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DrawerComponent } from '../../components/drawer/drawer.component'; //import component ที่ต้องการดึงมาใช้งาน
-import { NzDrawerService } from 'ng-zorro-antd/drawer'; //import service ของ ant
+import { NzDrawerService, NzDrawerRef } from 'ng-zorro-antd/drawer'; //import service ของ ant
 import { DrawerEditComponent } from './../../components/drawer-edit/drawer-edit.component';
 
 @Component({
@@ -23,25 +23,44 @@ export class TodoList2Component implements OnInit {
 
   onClick() {
     //show drawer create
-    this.nzDrawerService.create({
-      nzTitle: 'Edit',
+    const drawerRef = this.nzDrawerService.create<DrawerComponent>({
+      // { data: any },
+      // any
+      nzTitle: 'Component',
       nzContent: DrawerComponent,
-      nzWidth: '90%',
+      // nzContentParams: {
+      //   data: this.data,
+      // },
     });
-    this.showData();
+
+    drawerRef.afterClose.subscribe(() => {
+      this.showData();
+    });
   }
 
-  onClick2() {
-    //show draw edit
-    this.nzDrawerService.create({
-      nzTitle: 'Edit',
+  onClickEdit() {
+    const drawerRef = this.nzDrawerService.create<
+      DrawerEditComponent,
+      { data1: any },
+      any
+    >({
+      nzTitle: 'Edit Data',
       nzContent: DrawerEditComponent,
-      nzWidth: '90%',
+      nzContentParams: {
+        data1: this.data,
+      },
     });
   }
+  clickDelete(id: any) {
+    this.todoService.delete(id).then(() => {
+      this.showData();
+    });
+  }
+
   showData() {
     this.todoService.refresh().then((res: any) => {
       this.data = res;
+      // console.warn(this.data);
     });
   }
 }

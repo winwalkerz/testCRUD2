@@ -8,6 +8,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { FormsModule } from '@angular/forms'; //import module ของ angular ถึงจะทำ two way binding ได้
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzTableModule } from 'ng-zorro-antd/table';
 
 @NgModule({
   declarations: [DrawerComponent],
@@ -20,6 +21,7 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
     FormsModule,
     NzButtonModule,
     NzModalModule,
+    NzTableModule,
   ],
 })
 export class DrawerModule {}
