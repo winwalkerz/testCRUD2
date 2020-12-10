@@ -11,7 +11,11 @@ import { DrawerEditComponent } from './../../components/drawer-edit/drawer-edit.
 })
 export class TodoList2Component implements OnInit {
   data: any; //ตัวแปลสำหรับรับข้อมูลจาก mockupAPI
-
+  dataTest = {
+    id: '',
+    Task: '',
+    Time: '',
+  };
   constructor(
     private todoService: TodoService, //ประกาศตัวแปลเพื่อมาใช้งาน
     private nzDrawerService: NzDrawerService //ประกาศตัวแปลเพื่อมาใช้งาน
@@ -19,6 +23,7 @@ export class TodoList2Component implements OnInit {
 
   ngOnInit(): void {
     this.showData();
+    // console.log();
   }
 
   onClick() {
@@ -37,18 +42,25 @@ export class TodoList2Component implements OnInit {
       this.showData();
     });
   }
-
+  reData(value: any) {
+    this.dataTest = { ...value };
+    console.log(this.dataTest);
+    this.onClickEdit();
+  }
   onClickEdit() {
     const drawerRef = this.nzDrawerService.create<
       DrawerEditComponent,
-      { data1: any },
+      { dataSend: any },
       any
     >({
-      nzTitle: 'Edit Data',
+      nzTitle: 'Edit Data eiei',
       nzContent: DrawerEditComponent,
       nzContentParams: {
-        data1: this.data,
+        dataSend: this.dataTest,
       },
+    });
+    drawerRef.afterClose.subscribe(() => {
+      this.showData();
     });
   }
   clickDelete(id: any) {

@@ -38,7 +38,7 @@ export class DrawerComponent implements OnInit {
   showDatas() {
     this.todoservice.refresh().then((res: any) => {
       this.data = res;
-      console.warn(this.data);
+      // console.warn(this.data);
     });
   }
 }

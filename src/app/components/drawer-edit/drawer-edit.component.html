@@ -2,13 +2,15 @@
   <textarea
     nz-input
     [nzAutosize]="{ minRows: 2, maxRows: 6 }"
-    [(ngModel)]="valueEdit.Task"
+    [(ngModel)]="dataSend.Task"
   ></textarea>
+  <!-- {{valueEdit|json}} -->
   <br />
   <br />
-  <input  [(ngModel)]="valueEdit.Time" />
+  <input  [(ngModel)]="dataSend.Time" />
+  <!-- {{valueEdit[1].Task}} -->
   <div>
-    <button nz-button nzType="primary" (click)="edit(valueEdit)">
+    <button nz-button nzType="primary" (click)="edit(dataSend.id,dataSend)">
       Save!
     </button>
   </div>
