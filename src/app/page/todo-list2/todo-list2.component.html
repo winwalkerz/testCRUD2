@@ -1,35 +1,37 @@
-<div nz-row>
-  <div nz-row nzSpan="24" style="text-align: center">
-    <h1 nz-typography>Todo List!</h1>
-    <button nz-button nzType="primary" (click)="onClick(data)">
-      ADD
-    </button>
+<div class="main">
+  <div>
+    
+      <h1>Todo List!</h1>
+      <button nz-button nzType="default"(click)="onClick(data)"><i nz-icon nzType="plus-circle" nzTheme="outline"></i>เพิ่ม Task</button>
+
+    
   </div>
-</div>
-<div nz-row>
-  <div nz-row nzSpan="24">
-    <nz-table #basicTable>
-      <thead>
-        <tr>
-          <th>No</th>
-          <th>Task</th>
-          <th>Time</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let value of data">
-          <td>{{ value.id }}</td>
-          <td>{{ value.Task }}</td>
-          <td>{{ value.Time }}</td>
-          <td>
-            <a>Action 一 </a>
-            <nz-divider nzType="vertical"></nz-divider>
-            <a (click)="reData(value)">Edit</a>
-            <nz-divider nzType="vertical"></nz-divider>
-            <a (click)="clickDelete(value.id)">Delete</a>
-          </td>
-        </tr>
-      </tbody>
-    </nz-table>
+  <div nz-row style="margin-top: 30px;">
+    <div nz-row nzSpan="24">
+      <nz-table #basicTable [nzData]="data" nzShowPagination="false">
+        <thead>
+          <tr>
+            <th style="width: 100px;">No</th>
+            <th style="width: 400px;">Task</th>
+            <th style="width: 150px;">Time</th>
+            <th style="width: 150px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let value of data">
+            <td>{{ value.id }}</td>
+            <td>{{ value.Task }}</td>
+            <td>{{ value.Time }}</td>
+            <td>
+              
+              <a nz-tooltip nzTooltipTitle="แก้ไข"(click)="reData(value)"><i nz-icon nzType="edit" nzTheme="outline" nzSize="large" style="color: #ddc807;"></i></a>
+              <nz-divider nzType="vertical"></nz-divider>
+              <a nz-tooltip nzTooltipTitle="ลบ"(click)="clickDelete(value.id)"><i nz-icon nzType="delete" nzTheme="outline" style="color: red;"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+      <!-- <nz-pagination [nzPageIndex]="1" [nzTotal]=""></nz-pagination> -->
+    </div>
   </div>
 </div>

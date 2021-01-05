@@ -11,6 +11,9 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';  //import component
 import { DrawerModule } from 'src/app/components/drawer/drawer.module'; //******import module */
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 
 import { NzButtonModule } from 'ng-zorro-antd/button';
 
@@ -28,7 +31,10 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
     NzDrawerModule,
     DrawerModule,
     NzButtonModule,
-    DrawerEditModule
+    DrawerEditModule,
+    NzIconModule,
+    NzPaginationModule,
+    NzToolTipModule
   ]
 })
 export class TodoList2Module { }

@@ -31,7 +31,7 @@ export class TodoList2Component implements OnInit {
     const drawerRef = this.nzDrawerService.create<DrawerComponent>({
       // { data: any },
       // any
-      nzTitle: 'Component',
+      nzTitle: 'เพิ่ม Task ของคุณ',
       nzContent: DrawerComponent,
       // nzContentParams: {
       //   data: this.data,
